@@ -1,0 +1,130 @@
+
+
+###
+POST http://localhost:5000/user HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Abrar",
+    "email": "muhammadabrar@gmail.com",
+    "password": "ca@a.com"
+}
+###
+
+
+DELETE http://localhost:5000/user/63806c3c04f8ad5a2c0f5da3 HTTP/1.1
+
+###
+
+GET http://localhost:5000/user/ HTTP/1.1
+
+###
+GET http://localhost:5000/user/verify/6379d2f7ce5d83e24e420375/5996 HTTP/1.1
+
+###
+GET http://localhost:5000/user/profile/6379d2f7ce5d83e24e420375 HTTP/1.1
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjM3OTBjNWU1ZGNiYWM3YTg2ZTZlNzc5IiwiaWF0IjoxNjY4OTIwMzE3LCJleHAiOjE2NjkwMDY3MTd9.6E61j4TFnroKIAAFhW3TozCLVptg0SdCIEXksVJdMKE
+###
+POST http://localhost:5000/user/login HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Abrar",
+      "email": "muhammadabrar@gmail.com",
+    "password": "ca@a.com"
+}
+###
+POST http://localhost:5000/user HTTP/1.1
+content-type: application/json
+
+{
+         "_id": "63790c5e5dcbac7a86e6e779",
+  "name": "Abrar",
+  "email": "muhammadabrar.work@gmail.com",
+  "password": "$2a$10$8/O8Mnjt2NmIS5SExefID.Z1XNZZK0MH1XXOWsSICXVO1jRmrSgoS",
+  "code": null,
+  "status": true,
+  "NoFollowers": 0,
+  "follower": [],
+  "createdAt": "2022-11-19T17:03:26.209Z",
+  "updatedAt": "2022-11-19T17:04:29.511Z",
+  "__v": 0,
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjM3OTBjNWU1ZGNiYWM3YTg2ZTZlNzc5IiwiaWF0IjoxNjY4ODc3NDY5LCJleHAiOjE2Njg5NjM4Njl9.wYeNKXZPrfomVonYnkmhh92Ak2Lf524o6eH9XsGE9HQ"
+}
+
+
+
+
+###
+POST http://localhost:5000/post HTTP/1.1
+content-type: application/json
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjM3OWQyZjdjZTVkODNlMjRlNDIwMzc1IiwiaWF0IjoxNjY4OTI4Mjk1LCJleHAiOjE2NjkwMTQ2OTV9.qSENfoQrgzWFIm5WpiCOfxFiVUL6mj4HQoRr1JyvzyQ
+
+{
+    "title":"post title3",
+    "slug": "post-title10",
+    "description":"description descriptiondescriptiondescriptiondescriptiondescriptiondescription description",
+    "Image":"adsdsadasd",
+    "Location":"swabi",
+    "user_id":"6379d2f7ce5d83e24e420375"
+}
+###
+GET  http://localhost:5000/post HTTP/1.1
+
+###
+DELETE http://localhost:5000/post/deletePost/6379f28e0b55a7d734cb1ffc
+
+# eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjM3OWQyZjdjZTVkODNlMjRlNDIwMzc1IiwiaWF0IjoxNjY4OTI4MjYxLCJleHAiOjE2NjkwMTQ2NjF9.LrHq0xTO8xpzxqzR0OSl-B4TSxkQwN5wTRLoINl6fcs
+
+
+
+###
+
+GET http://localhost:5000/user/follow/6379d2f7ce5d83e24e420375
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjM3OTBjNWU1ZGNiYWM3YTg2ZTZlNzc5IiwiaWF0IjoxNjY4OTI4MjM4LCJleHAiOjE2NjkwMTQ2Mzh9.ATX-TKXb_nhhhCwDGDbsB_vN5kEzYDfE0gJESJJ6A-U
+
+###
+
+GET http://localhost:5000/user/unFollow/6382366404df8df70bdfaaf2
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjM3OTBjNWU1ZGNiYWM3YTg2ZTZlNzc5IiwiaWF0IjoxNjY4OTI4MjM4LCJleHAiOjE2NjkwMTQ2Mzh9.ATX-TKXb_nhhhCwDGDbsB_vN5kEzYDfE0gJESJJ6A-U
+
+
+###
+DELETE http://localhost:5000/user/unFollow/63870b1ba1eab6024b228dd3
+
+###
+GET http://localhost:5000/user/follows
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjM3OTBjNWU1ZGNiYWM3YTg2ZTZlNzc5IiwiaWF0IjoxNjY4OTI4MjM4LCJleHAiOjE2NjkwMTQ2Mzh9.ATX-TKXb_nhhhCwDGDbsB_vN5kEzYDfE0gJESJJ6A-U
+
+###
+GET http://localhost:5000/user/followings/6379d2f7ce5d83e24e420375
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjM3OTBjNWU1ZGNiYWM3YTg2ZTZlNzc5IiwiaWF0IjoxNjY4OTI4MjM4LCJleHAiOjE2NjkwMTQ2Mzh9.ATX-TKXb_nhhhCwDGDbsB_vN5kEzYDfE0gJESJJ6A-U
+# "63806ee404f8ad5a2c0f5daf"
+
+###
+GET http://localhost:5000/post/search/dsada
+
+
+
+###
+GET  http://localhost:5000/post/New-post1 HTTP/1.1
+
+
+###
+POST http://localhost:5000/post/getlike HTTP/1.1
+content-type: application/json
+
+{
+    "user_id":"63806ee404f8ad5a2c0f5daf",
+    "post_id": "6381485d517cd60983c8722a"
+}
+
+###
+POST http://localhost:5000/post/like
+content-type: application/json
+
+{
+    "user_id":"63806ee404f8ad5a2c0f5daf",
+    "post_id": "6381485d517cd60983c8722a",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjM4MDZlZTQwNGY4YWQ1YTJjMGY1ZGFmIiwiaWF0IjoxNjY5OTUyMzgwfQ.ZxP6kAjfhphwF72WJzH78_uOG5T2J1e1xR3t76Y0J0E"
+}
