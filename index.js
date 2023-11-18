@@ -11,7 +11,7 @@ app.use("/public", express.static("public"));
 app.use(bodyParser.json());
 
 //database=============================================================
-const uri = "mongodb+srv://Asquare:@cluster0.7y43i.mongodb.net/";
+const uri = "mongodb+srv://Asquare:Locker143@cluster0.7y43i.mongodb.net/";
 mongoose.connect(uri, {});
 const connection = mongoose.connection;
 connection.once("open", () => {
@@ -21,7 +21,10 @@ connection.once("open", () => {
 
 
 
-//i change this
+
+
+
+
 
 //database=============================================================
 

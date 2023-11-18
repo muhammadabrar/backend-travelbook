@@ -16,14 +16,14 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage: storage });
+const admin = '6554315b7bf55d2bd60bff68'
 
 ////////////////////////////////////
-///////////get by all Posts////////////////
+///////////get all Posts////////////////
 router.route("/").get(async (req, res) => {
   try {
     let posts = [];
-    const getposts = await Posts.find();
-
+    const getposts = await Posts.find({ user_id: { $ne: admin } }).sort({ createdAt: -1 });;
     for (let i = 0; i < getposts.length; i++) {
       const user = await Users.findOne({
         _id: getposts[i]?.user_id,
@@ -36,6 +36,18 @@ router.route("/").get(async (req, res) => {
   }
 });
 
+////////////////////////////////////
+///////////get all Posts////////////////
+router.route("/landingPage").get(async (req, res) => {
+  try {
+    const getposts = await Posts.find({user_id: admin}).sort({ createdAt: -1 });;
+    
+    
+    res.json(getposts);
+  } catch (error) {
+    res.status(400).json("Error: " + error);
+  }
+});
 ////////////////////////////////////
 ///////////post like////////////////
 router.route("/like").post(auth, async (req, res) => {
@@ -86,8 +98,10 @@ router.route("/:slug").get(async (req, res) => {
     const user = await Users.findOne({
       _id: post?.user_id,
     });
+    let IsAdmin= user?._id == admin
+   
 
-    res.json({ post, user });
+    res.json({ post, user, IsAdmin });
   } catch (err) {
     res.status(400).json("Error: " + err);
   }
